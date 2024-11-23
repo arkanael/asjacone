@@ -1,0 +1,64 @@
+{
+  "name": "clubedoshoteis-web",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.13.1",
+    "npm": ">=10.8.0"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "testRegex": "./tests/.*\\.test\\.ts$",
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ],
+    "verbose": true,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --detectOpenHandles"
+  },
+  "dependencies": {
+    "@next/third-parties": "^14.2.5",
+    "autoprefixer": "^10.4.19",
+    "classnames": "^2.5.1",
+    "isolated-vm": "^5.0.0",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "20.12.13",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "^18",
+    "chrome-finder": "^1.0.7",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-puppeteer": "^10.0.1",
+    "postcss": "^8.4.38",
+    "puppeteer": "^22.10.0",
+    "stylelint-config-recommended": "^14.0.0",
+    "tailwindcss": "^3.4.3",
+    "ts-jest": "^29.1.4",
+    "typescript": "^5.4.5"
+  }
+}
