@@ -1,6 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
-import passportImage from "../../public/prancha.png"; // Importe a imagem do passaporte aqui
+import passportImage from "../../public/ASJ.png"; // Importe a imagem do passaporte aqui
 import RegisterForm from "./RegisterForm";
 
 

@@ -1,73 +1,56 @@
-import * as React from "react";
-import Image from "next/image";
-import InfoCard from './InfoCard';
-import riobackground from '../../public/sol.jpg';
+// components/ASJShowcase.tsx
+"use client";
 
-export default function ThirdSection() {
-    const cardsData = [
-        {
-            title: "Entidade civil sem fins lucrativos:",
-            description: "Economize até 2fundada em 22 de dezembro de 2001. Desde sua criação, a ASJ tem se dedicado à preservação da restinga da praia de Jaconé, promovendo ações de conscientização tanto para a população local quanto para os turistas que visitam a região.",
-        },
-        {
-            title: "O objetivo principal da ASJ é:",
-            description: "realizar eventos esportivos e solidários, que não apenas promovam o espírito competitivo, mas também estimulem o turismo, o bem-estar, a saúde e a preservação ambiental, contribuindo para um ambiente mais saudável e sustentável.",
-        },
-        {
-            title: "promover um campeonato que incentive a prática esportiva na região:",
-            description: "fortalecendo o espírito comunitário e valorizando a importância da preservação ambiental para as futuras gerações. Acreditamos que, por meio do esporte, é possível não só promover saúde e lazer, mas também difundir valores que contribuem para o desenvolvimento sustentável de Jaconé.",
-        },
-        {
-            title: "ASJ tem se dedicado à preservação da restinga da praia de Jaconé:",
-            description: "promovendo ações de conscientização tanto para a população local quanto para os turistas que visitam a região.",
-        },
-    ];
+import React, { useState } from 'react';
 
-    // Dividindo os cards em duas colunas
-    const halfLength = Math.ceil(cardsData.length / 2);
-    const firstColumn = cardsData.slice(0, halfLength);
-    const secondColumn = cardsData.slice(halfLength);
+const ASJShowcase: React.FC = () => {
+  const slides = [
+    {
+      image: '/trofeuasj.png',
+      text: 'A ASJ é uma organização dedicada a promover o surf e a cultura oceânica.',
+    },
+    {
+      image: '/images/surf2.jpg',
+      text: 'Desde 2005, a ASJ inspira jovens atletas a atingir seu potencial máximo nas ondas.',
+    },
+    {
+      image: '/images/surf3.jpg',
+      text: 'Com campeonatos e iniciativas ambientais, a ASJ conecta pessoas ao mar.',
+    },
+  ];
 
-    return (
-        <div className="relative flex flex-col justify-center items-center w-full overflow-hidden min-h-screen">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0 w-full h-full">
-                <Image
-                    src={riobackground}
-                    alt="Background Image"
-                    layout="fill"
-                    objectFit="cover"
-                    quality={100}
-                    className="w-full h-full"
-                />
-            </div>
-            <div className="relative z-10 flex flex-col items-end px-16 py-10 w-full max-md:px-5 max-md:max-w-full">
-                <header className="pr-10 pb-4 text-3xl font-bold leading-10 text-center text-neutral-800 w-[70%] max-md:max-w-full">
-                    <span>Saiba Mais sobre</span>a Associação de Surf de Jaconé (ASJ): 
-                </header>
-                <section className="mt-4 max-md:mt-5 max-md:max-w-full flex flex-col gap-5 max-md:flex-row max-md:flex-wrap w-full">
-                    <div className="flex justify-end w-full max-md:flex-col max-md:space-y-5"> {/* Adiciona espaço vertical entre os itens */}
-                        {firstColumn.map((card, index) => (
-                            <InfoCard
-                                key={index}
-                                title={card.title}
-                                description={card.description}
-                                customClasses="mr-4 w-[35%] max-md:w-full text-xl font-medium leading-7 text-white rounded-xl border-solid shadow-sm bg-black bg-opacity-50 border-[3px] border-sky-950 max-md:mb-5 transition duration-300 ease-in-out hover:border-blue-300"
-                            />
-                        ))}
-                    </div>
-                    <div className="flex justify-end w-full max-md:flex-col max-md:space-y-5"> {/* Adiciona espaço vertical entre os itens */}
-                        {secondColumn.map((card, index) => (
-                            <InfoCard
-                                key={index}
-                                title={card.title}
-                                description={card.description}
-                                customClasses="mr-4 w-[35%] max-md:w-full text-xl font-medium leading-7 text-white rounded-xl border-solid shadow-sm bg-black bg-opacity-50 border-[3px] border-sky-950 max-md:mb-5 transition duration-300 ease-in-out hover:border-blue-300"
-                            />
-                        ))}
-                    </div>
-                </section>
-            </div>
-        </div>
-    );
-}
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+  };
+
+  return (
+    <div
+      className="flex items-center justify-between w-full h-screen p-8 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300"
+    >
+      {/* Texto */}
+      <div className="flex-1 max-w-md text-white">
+        <h2 className="mb-4 text-3xl font-bold">Quem é a ASJ?</h2>
+        <p className="text-lg">{slides[currentSlide].text}</p>
+      </div>
+
+      {/* Imagem e botão */}
+      <div className="relative flex-1 flex items-center justify-center ">
+        <img
+          src={slides[currentSlide].image}
+          alt={`Slide ${currentSlide + 1}`}
+          className="w-3/4 max-h-96 object-contain rounded-lg shadow-lg"
+        />
+        <button
+          onClick={handleNextSlide}
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 p-4 text-white bg-blue-700 rounded-full shadow hover:bg-blue-800"
+        >
+          Avançar
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ASJShowcase;
