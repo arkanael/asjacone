@@ -17,7 +17,7 @@ export default function AskSection() {
         <div className="flex gap-3 mt-11 text-center max-md:flex-wrap max-md:mt-10">
           <Image src={icon} width={27} height={27} alt="" />
           <div className="flex-auto my-auto max-md:max-w-full">
-            Como posso me tornar membro do Clube de Hotéis
+            Como posso me tornar membro da Associação de Surfe de Jaconé
           </div>
         </div>
         <div className="mx-9 mt-4 text-base leading-8 text-neutral-800 max-md:mr-2.5 max-md:max-w-full">
@@ -29,7 +29,7 @@ export default function AskSection() {
         <div className="flex gap-3 mt-8 text-center max-md:flex-wrap">
           <Image src={icon} width={27} height={27} alt="" />
           <div className="flex-auto my-auto max-md:max-w-full">
-            Quais são os benefícios de ser um membro do Clube de Hotéis?
+            Quais são os benefícios de ser um membro da Associação de Surfe de Jaconé?
           </div>
         </div>
         <div className="flex gap-3 self-start mt-5 max-md:flex-wrap">
@@ -44,12 +44,12 @@ export default function AskSection() {
             Posso cancelar minha assinatura a qualquer momento?
           </div>
         </div>
-        <div className="flex gap-3 mt-5 max-md:flex-wrap">
+        {/* <div className="flex gap-3 mt-5 max-md:flex-wrap">
           <Image src={icon} width={27} height={27} alt="" />
           <div className="flex-auto my-auto max-md:max-w-full">
-            Como o Clube de Hotéis consegue oferecer descontos tão significativos?
+            Como a Associação de Surfe de Jaconé consegue oferecer descontos tão significativos?
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
