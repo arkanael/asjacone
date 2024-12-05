@@ -17,7 +17,7 @@ function Footer() {
     <footer className="flex justify-center items-center px-16 py-8 w-full text-base leading-8 text-white bg-gradient-to-r from-customBlue1 to-customBlue2 max-md:px-5 max-md:max-w-full">
       <div className="flex gap-5 max-w-full w-[1048px] max-md:flex-wrap">
         <FooterItem>
-          <span className="font-bold">CLUBE DOS HOTÉIS ©</span> Todos os direitos reservados
+          <span className="font-bold">Associação de Surf de Jaconé ©</span> Todos os direitos reservados
         </FooterItem>
         <FooterItem>
           Políticas de Privacidade <span className="font-bold">&</span> Termos de Uso
@@ -38,9 +38,9 @@ export default function FooterSection() {
         <div className="relative z-10 flex flex-col items-center w-full px-16 py-20 max-md:px-5 max-md:max-w-full">
           <div className="flex flex-col max-w-full">
             <h2 className="text-lg font-bold leading-8 text-white">Entre em contato conosco</h2>
-            <p className="mt-7 text-base leading-8 text-white">suporte@cludedoshoteis.com.br</p>
+            <p className="mt-7 text-base leading-8 text-white">associacaosurfjacone@gmail.com</p>
             <div className="flex gap-5 justify-between self-center mt-7">
-              <a href="https://www.instagram.com/seuinstagram" aria-label='Instagram' className="shrink-0 aspect-square w-[35px]" target="_blank" rel="noopener">
+              <a href="https://www.instagram.com/asjacone/" aria-label='Instagram' className="shrink-0 aspect-square w-[35px]" target="_blank" rel="noopener">
                 <Image src={icon1} alt="Instagram icon"   />
               </a>
               <a href="https://www.linkedin.com/seulinkedin" aria-label='LinkedIn' className="shrink-0 aspect-square w-[35px]" target="_blank" rel="noopener">
