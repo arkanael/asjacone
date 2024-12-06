@@ -15,7 +15,7 @@ function Index() {
       <ThirdSection />
   
       {/* Exibição do Componente Weather */}
-      <Weather location="Rio de Janeiro" />
+      <Weather />
       <Notas></Notas>
       <FooterSection />
     </>
