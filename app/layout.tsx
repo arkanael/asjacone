@@ -6,9 +6,9 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Clube dos Hotéis",
+  title: "Associação de Surf de Jaconé",
   description:
-    " Clube dos Hotéis",
+    "Associação de Surf de Jaconé",
 };
 
 export default function RootLayout({
