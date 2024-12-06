@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "../../public/ASJ.png";
 import Transmissao from "./Transmissao";
 import GaleriaASJ from "./Galeria"; // Importa o componente da galeria
+import Link from "next/link";
 
 export default function HeaderSection() {
   const [showLiveStream, setShowLiveStream] = useState(false);
@@ -47,9 +48,11 @@ export default function HeaderSection() {
             <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
               CADASTRE-SE AQUI
             </button>
-            <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
-              SEJA PATROCINADOR
-            </button>
+            <Link href="https://forms.gle/QyVjPRjads5hmupy5" passHref>
+              <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
+                SEJA PATROCINADOR
+              </button>
+            </Link>
             <button
               onClick={() => setShowGallery(true)}
               className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white"
