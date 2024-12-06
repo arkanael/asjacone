@@ -45,14 +45,15 @@ export default function HeaderSection() {
             >
               TRANSMISSÃO AO VIVO
             </button>
-            <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
+            <button 
+            className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
               CADASTRE-SE AQUI
             </button>
-            <Link href="https://forms.gle/QyVjPRjads5hmupy5" passHref>
-              <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
-                SEJA PATROCINADOR
-              </button>
-            </Link>
+              <Link  href="https://forms.gle/QyVjPRjads5hmupy5" passHref 
+              className="grow justify-center itens-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
+                <p className="text-center">SEJA UM PATROCINADOR</p>
+                
+              </Link>
             <button
               onClick={() => setShowGallery(true)}
               className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white"
