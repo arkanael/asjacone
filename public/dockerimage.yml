@@ -11,7 +11,7 @@ on:
 
     
 env:
-  IMAGE_NAME: clubedoshoteis-web
+  IMAGE_NAME: asjacone-web
 
 jobs:
   build:
