@@ -10,7 +10,6 @@ const images = [
   "/gallery/photo4.jpg",
 ];
 
-
 export default function GaleriaASJ({ onClose }: { onClose: () => void }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
