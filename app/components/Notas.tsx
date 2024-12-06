@@ -11,7 +11,8 @@ interface AthleteRecord {
 
 const SubmitScores: React.FC<{
   onSubmit: (scores: number[], jurorNames: string[], athleteName: string, heatNumber: string) => void;
-}> = ({ onSubmit }) => {
+  onClearHistory: () => void;
+}> = ({ onSubmit, onClearHistory }) => {
   const [athleteName, setAthleteName] = useState("");
   const [heatNumber, setHeatNumber] = useState("");
   const [jurorNames, setJurorNames] = useState("");
@@ -19,6 +20,7 @@ const SubmitScores: React.FC<{
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const jurors = jurorNames.split(",").map((name) => name.trim());
     const scoreValues = scores.split(",").map((score) => parseFloat(score.trim()));
 
@@ -30,6 +32,12 @@ const SubmitScores: React.FC<{
       setScores("");
     } else {
       alert("Por favor, preencha todos os campos corretamente.");
+    }
+  };
+
+  const handleClearHistory = () => {
+    if (confirm("Tem certeza de que deseja apagar o histórico?")) {
+      onClearHistory();
     }
   };
 
@@ -68,7 +76,14 @@ const SubmitScores: React.FC<{
         type="submit"
         className="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-500 transition"
       >
-        Enviar
+        Enviar Nota
+      </button>
+      <button
+        type="button"
+        onClick={handleClearHistory}
+        className="w-full bg-red-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-red-500 transition"
+      >
+        Apagar Histórico
       </button>
     </form>
   );
@@ -89,7 +104,7 @@ const RankingTable: React.FC<{ history: AthleteRecord[] }> = ({ history }) => {
   return (
     <div>
       <h2 className="text-xl font-bold mb-4 text-white text-center">Tabela de Atletas</h2>
-      <table className="w-full table-auto border-collapse bg-white shadow-lg">
+      <table className="w-full table-auto border-collapse bg-white shadow-lg mb-6">
         <thead>
           <tr className="bg-blue-600 text-white">
             <th className="p-2 border">Posição</th>
@@ -110,26 +125,29 @@ const RankingTable: React.FC<{ history: AthleteRecord[] }> = ({ history }) => {
         </tbody>
       </table>
 
-      <h3 className="text-lg font-bold mt-6 text-blue-700">Histórico Detalhado</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      {/* Histórico detalhado */}
+      <h2 className="text-lg font-bold mb-2 text-blue-700">Histórico Detalhado</h2>
+      <div className="grid grid-cols-1 gap-4">
         {history.map((record, index) => (
-          <div
-            key={index}
-            className="p-4 bg-white rounded-lg shadow-md border border-blue-300"
-          >
-            <h4 className="text-md font-bold mb-2 text-blue-600">
-              {record.athleteName} - Bateria {record.heatNumber}
-            </h4>
-            <ul className="text-sm">
-              {record.jurorNames.map((juror, i) => (
-                <li key={i} className="flex justify-between">
-                  <span className="font-medium text-gray-700">Jurado {juror}:</span>
-                  <span className="text-gray-900">{record.scores[i]}</span>
+          <div key={index} className="p-4 border rounded-lg bg-white shadow-md">
+            <p>
+              <strong>Atleta:</strong> {record.athleteName}
+            </p>
+            <p>
+              <strong>Bateria:</strong> {record.heatNumber}
+            </p>
+            <p>
+              <strong>Jurados e Notas:</strong>
+            </p>
+            <ul className="list-disc list-inside">
+              {record.jurorNames.map((juror, idx) => (
+                <li key={idx}>
+                  {juror}: {record.scores[idx]}
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-sm text-blue-700 font-bold">
-              Média: {record.scores.reduce((a, b) => a + b, 0) / record.scores.length}
+            <p>
+              <strong>Média:</strong> {record.scores.reduce((a, b) => a + b, 0) / record.scores.length}
             </p>
           </div>
         ))}
@@ -140,11 +158,24 @@ const RankingTable: React.FC<{ history: AthleteRecord[] }> = ({ history }) => {
 
 const MainPage: React.FC = () => {
   const [history, setHistory] = useState<AthleteRecord[]>([]);
-  const [viewHistory, setViewHistory] = useState(false);
+  const [viewLaunchScores, setViewLaunchScores] = useState(false);
 
   const handleScoresSubmit = (scores: number[], jurorNames: string[], athleteName: string, heatNumber: string) => {
     const newRecord = { athleteName, heatNumber, jurorNames, scores };
     setHistory([...history, newRecord]);
+  };
+
+  const handleClearHistory = () => {
+    setHistory([]);
+  };
+
+  const handleLaunchScores = () => {
+    const enteredPassword = prompt("Digite a senha para lançar notas:");
+    if (enteredPassword === "A$JACONE") {
+      setViewLaunchScores(true);
+    } else {
+      alert("Senha incorreta! Acesso negado.");
+    }
   };
 
   return (
@@ -153,13 +184,13 @@ const MainPage: React.FC = () => {
       <div className="w-full lg:w-1/3 p-4 bg-white shadow-lg">
         <h2 className="text-xl font-bold mb-4 text-blue-700">Ações</h2>
         <button
-          onClick={() => setViewHistory(false)}
+          onClick={handleLaunchScores}
           className="block w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-md mb-4 hover:bg-blue-500 transition"
         >
           Lançar Nota
         </button>
         <button
-          onClick={() => setViewHistory(true)}
+          onClick={() => setViewLaunchScores(false)}
           className="block w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-500 transition"
         >
           Acompanhar Notas
@@ -168,7 +199,11 @@ const MainPage: React.FC = () => {
 
       {/* Lado Direito */}
       <div className="w-full lg:w-2/3 p-4">
-        {viewHistory ? <RankingTable history={history} /> : <SubmitScores onSubmit={handleScoresSubmit} />}
+        {viewLaunchScores ? (
+          <SubmitScores onSubmit={handleScoresSubmit} onClearHistory={handleClearHistory} />
+        ) : (
+          <RankingTable history={history} />
+        )}
       </div>
     </div>
   );
