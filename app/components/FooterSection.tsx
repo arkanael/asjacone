@@ -83,16 +83,18 @@ export default function FooterSection() {
         <div className="relative z-10 flex flex-col items-center w-full px-16 py-20 max-md:px-5 max-md:max-w-full">
           <div className="flex flex-col max-w-full">
             <h3 className="text-lg font-bold leading-8 text-black">APOIO:</h3>
-            <div className="grid grid-cols-4 gap-4 mt-5">
+            {/* Responsividade para 2 colunas em dispositivos móveis e 4 colunas em telas maiores */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
               {sponsors.map((sponsor, index) => (
-                <Image
-                  key={index}
-                  src={sponsor.src}
-                  alt={sponsor.alt}
-                  width={100}
-                  height={100}
-                  className="object-contain"
-                />
+                <div key={index} className="flex justify-center items-center">
+                  <Image
+                    src={sponsor.src}
+                    alt={sponsor.alt}
+                    width={200}  // Aumentando o tamanho
+                    height={200} // Mantendo a proporção
+                    className="object-contain w-full h-auto"
+                  />
+                </div>
               ))}
             </div>
           </div>
