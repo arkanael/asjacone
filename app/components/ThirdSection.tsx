@@ -10,7 +10,7 @@ const ASJShowcase: React.FC = () => {
     },
     {
       image: '/pranchaguy.jpg',
-      text: 'Desde 2005, a ASJ inspira jovens atletas a atingir seu potencial máximo nas ondas.',
+      text: 'Desde 2002, a ASJ inspira jovens atletas a atingir seu potencial máximo nas ondas.',
     },
     {
       image: '/surf3.jpg',
@@ -49,14 +49,14 @@ const ASJShowcase: React.FC = () => {
           {/* Botão Voltar */}
           <button
             onClick={handlePreviousSlide}
-            className="p-4 text-white bg-blue-700 rounded-full shadow hover:bg-blue-800"
+            className="p-4 text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-full shadow transition duration-300 hover:from-blue-600 hover:to-blue-800"
           >
             Voltar
           </button>
           {/* Botão Avançar */}
           <button
             onClick={handleNextSlide}
-            className="p-4 text-white bg-blue-700 rounded-full shadow hover:bg-blue-800"
+            className="p-4 text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-full shadow transition duration-300 hover:from-blue-600 hover:to-blue-800"
           >
             Avançar
           </button>
