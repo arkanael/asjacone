@@ -1,13 +1,19 @@
-import * as React from "react";
+'use client'
+import React, { useState } from "react";
 import Image from "next/image";
-import logo from '../../public/ASJ.png';
+import logo from "../../public/ASJ.png";
+import Transmissao from "./Transmissao";
+import GaleriaASJ from "./Galeria"; // Importa o componente da galeria
 
 export default function HeaderSection() {
+  const [showLiveStream, setShowLiveStream] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+
   return (
     <div className="relative flex flex-col justify-center items-center w-full min-h-screen overflow-hidden">
       {/* Background Video with Overlay */}
       <video
-        src="/surf2.mp4"
+        src="/surf1.mp4"
         autoPlay
         loop
         muted
@@ -28,28 +34,14 @@ export default function HeaderSection() {
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-20 flex flex-col items-center px-16 py-20 w-full max-md:px-5 max-md:max-w-full">
-        <div className="max-w-full w-[1104px] text-white">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          </div>
-        </div>
-      </div>
-
-      {/* Left Section - Absolute positioned at the top-left */}
-      <section className="absolute top-0 left-0 w-full px-16 py-5 z-20 text-white">
-        {/* Text positioned at the top left above the logo */}
-        <h1 className="text-5xl max-md:text-3xl font-bold">
-      
-        </h1>
-      </section>
-
       {/* Bottom Button Section */}
       <section className="absolute bottom-0 left-0 w-full px-16 py-10 z-20 text-white">
         <div className="flex flex-col leading-10 max-md:mt-10 max-md:max-w-full">
-          {/* Buttons */}
           <div className="flex gap-6 mt-10 text-sm max-md:flex-wrap max-md:mt-10 justify-center">
-            <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
+            <button
+              onClick={() => setShowLiveStream(true)}
+              className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white"
+            >
               TRANSMISSÃO AO VIVO
             </button>
             <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
@@ -58,12 +50,21 @@ export default function HeaderSection() {
             <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
               SEJA PATROCINADOR
             </button>
-            <button className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white">
+            <button
+              onClick={() => setShowGallery(true)}
+              className="grow justify-center px-16 py-3 border border-solid backdrop-blur-[10px] bg-transparent border-stone-300 rounded-full w-fit max-md:px-6 transition duration-300 ease-in-out hover:bg-blue-500 hover:bg-opacity-50 hover:text-white"
+            >
               Galeria ASJ
             </button>
           </div>
         </div>
       </section>
+
+      {/* Transmissão Ao Vivo */}
+      {showLiveStream && <Transmissao onClose={() => setShowLiveStream(false)} />}
+
+      {/* Galeria ASJ */}
+      {showGallery && <GaleriaASJ onClose={() => setShowGallery(false)} />}
     </div>
   );
 }
