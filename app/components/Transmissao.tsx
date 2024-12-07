@@ -18,6 +18,16 @@ export default function Transmissao({ onClose }: TransmissaoProps) {
           Fechar
         </button>
 
+        {/* Botão Twitch */}
+        <a
+          href="https://www.twitch.tv/ASJACONE"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-4 left-4 text-white bg-purple-500 rounded-full px-6 py-2 hover:bg-purple-600 transition"
+        >
+          Twitch
+        </a>
+
         {/* Vídeo do YouTube */}
         <iframe
           className="w-full h-full"

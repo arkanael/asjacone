@@ -75,11 +75,37 @@ export default function FooterSection() {
     { src: "/blackdesigne.png", alt: "Black Design Logo" },
     { src: "/recanto.png", alt: "Recanto Logo" },
     { src: "/logomar.png", alt: "Logomar Logo" },
+    { src: "/Mesaposta.png", alt: "Logomar Logo" },
   ];
 
   return (
     <>
       <div className="relative flex flex-col justify-center items-center w-full text-base leading-8 text-black bg-white gap-0">
+        {/* Imagens de Patrocínio - Responsividade */}
+        <div className="relative w-full mt-4">
+          {/* Para telas pequenas e muito pequenas */}
+          <div className="block md:hidden">
+            <Image
+              src="/patrocinio.JPG"
+              alt="Patrocinio Pequeno"
+              width={500}
+              height={250}
+              className="w-full h-auto"
+            />
+          </div>
+
+          {/* Para telas médias e grandes */}
+          <div className="hidden md:block">
+            <Image
+              src="/patrocinio2.PNG"
+              alt="Patrocinio Grande"
+              width={500}
+              height={250}
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+
         <div className="relative z-10 flex flex-col items-center w-full px-16 py-20 max-md:px-5 max-md:max-w-full">
           <div className="flex flex-col max-w-full">
             <h3 className="text-lg font-bold leading-8 text-black">APOIO:</h3>
