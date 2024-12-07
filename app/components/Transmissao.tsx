@@ -31,7 +31,7 @@ export default function Transmissao({ onClose }: TransmissaoProps) {
         {/* Vídeo do YouTube */}
         <iframe
           className="w-full h-full"
-          src="https://www.youtube.com/live/MQIeq6heNwo?si=Z3vvS0uIXepShw9o"
+          src="https://www.youtube.com/live/FrSKxwRfjKc?si=j4r_LgHR2igjLDYf"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -41,3 +41,4 @@ export default function Transmissao({ onClose }: TransmissaoProps) {
     </section>
   );
 }
+//          src="https://www.youtube.com/live/MQIeq6heNwo?si=Z3vvS0uIXepShw9o"
