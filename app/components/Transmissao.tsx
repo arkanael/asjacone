@@ -31,7 +31,7 @@ export default function Transmissao({ onClose }: TransmissaoProps) {
         {/* Vídeo do YouTube */}
         <iframe
           className="w-full h-full"
-          src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+          src="https://www.youtube.com/live/MQIeq6heNwo?si=Z3vvS0uIXepShw9o"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
