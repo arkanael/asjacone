@@ -34,6 +34,7 @@ export default function SecondSection() {
         autoPlay
         loop
         muted
+        playsInline
         className="m-0 p-0 w-full h-full object-cover"
       />
     </section>
