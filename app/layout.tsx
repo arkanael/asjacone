@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +17,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P3QNS5ERSW"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-P3QNS5ERSW');
+          `}
+        </script>
+      </head>
       <body className={inter.className}>
-        <GoogleAnalytics gaId="G-J2HQ56KXM7" />
         <main>{children}</main>
       </body>
     </html>
